@@ -1,1 +1,13 @@
-Hello!
+<%=form_for User.new do |f|%>
+    <%=f.label :name, "Username"%><br>
+    <%=f.text_field :name%><br><br>
+
+    <%=f.label :email, "E-mail Address:"%><br>
+    <%=f.text_field :email%><br><br>
+    
+    <%=f.label :password%><br>
+    <%=f.password_field :password%><br><br>
+
+    <%=f.submit "Sign Up!"%>
+
+<%end%>

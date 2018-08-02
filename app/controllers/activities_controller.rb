@@ -1,4 +1,4 @@
-class Activities_Controller < ApplicationController
+class ActivitiesController < ApplicationController
     def show
 
     end
@@ -8,7 +8,13 @@ class Activities_Controller < ApplicationController
     end
 
     def create
+        activity = Activity.new(activity_params)
 
+        if activity.save
+            redirect_to activity_path(activity)
+        else
+            redirect_to new_activity_path
+        end
     end
 
     def destroy
@@ -22,6 +28,6 @@ class Activities_Controller < ApplicationController
     private
 
     def activity_params
-        params.require(:activities).permit(:name, :description)
+        params.require(:activity).permit(:name, :description)
     end
 end

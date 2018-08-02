@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SpecialtyReviewV001</title>
+    <title>Specialty Review</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div style="clear:both;">
+      <div style="float:left;">
+        <h1>Specialty Review</h1>
+      </div>
+
+      <div style="float:right;">
+        <%if current_user%>
+          <%=link_to "Activities", activities_path%><br>
+          <%=link_to "Your Profile", user_path(current_user)%><br>
+          <%=link_to "Log Out", signout_path, method: :delete%>
+        <%end%>
+      </div>
+    </div>
+
+    <div style="clear:both;">
+      <%= yield %>
+    </div>
   </body>
 </html>

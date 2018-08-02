@@ -22,7 +22,8 @@ class ActivitiesController < ApplicationController
     end
 
     def index
-
+        @activities = Activity.all
+        
     end
 
     private

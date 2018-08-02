@@ -8,4 +8,11 @@ Rails.application.routes.draw do
   delete '/sessions' => 'sessions#destroy'
 
   resources :activities
+  resources :item_categories
+
+  resources :item_models do
+    resources :characteristics
+  end
+
+  resources :ratings
 end

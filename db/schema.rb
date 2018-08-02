@@ -10,11 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_035557) do
+ActiveRecord::Schema.define(version: 2018_08_02_194433) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.string "description"
+  end
+
+  create_table "characteristics", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "item_model_id"
+  end
+
+  create_table "item_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "activity_id"
+  end
+
+  create_table "item_models", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "item_category_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "rating"
+    t.integer "user_id"
+    t.integer "characteristic_id"
   end
 
   create_table "users", force: :cascade do |t|

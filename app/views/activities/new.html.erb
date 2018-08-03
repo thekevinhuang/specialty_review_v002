@@ -1,9 +1,2 @@
-<%=form_for Activity.new do |f|%>
-    <%=f.label :name%><br>
-    <%=f.text_field :name%><br><br>
-
-    <%=f.label :description%><br>
-    <%=f.text_field :description%><br><br>
-
-    <%=f.submit "Create Activity"%>
-<%end%>
+<h2> Create new Activity </h2>
+<%=render partial: 'form', locals: {current_object: Activity.new, parent_object: nil}%>

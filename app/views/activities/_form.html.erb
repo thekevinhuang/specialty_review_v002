@@ -1,0 +1,14 @@
+<%=form_for current_object do |f|%>
+    <%=f.label :name%><br>
+    <%=f.text_field :name%><br><br>
+
+    <%=f.label :description%><br>
+    <%=f.text_field :description%><br><br>
+
+    <%if parent_object%>
+        
+        <%=hidden_field_tag 'parent_id', parent_object.id%>
+    <%end%>
+
+    <%=f.submit "Create Activity"%>
+<%end%>

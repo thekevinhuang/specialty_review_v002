@@ -1,1 +1,14 @@
-This is your activity!
+<h2><%=@activity.name%></h2>
+
+<h3>Item Categories</h3>
+
+<ul>
+    <%@activity.item_categories.each do |item_category|%>
+        <li><%=link_to item_category.name, item_category_path(item_category)%></li>
+    <%end%>
+</ul>
+
+<br><br>
+
+<%=link_to "Add new Item Category", new_item_category_path(activity_id: @activity.id)%>
+

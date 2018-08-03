@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
     def show
-
+        @activity = Activity.find_by(id: params[:id])
     end
 
     def new
@@ -23,7 +23,6 @@ class ActivitiesController < ApplicationController
 
     def index
         @activities = Activity.all
-        
     end
 
     private

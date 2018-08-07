@@ -1,3 +1,14 @@
 <h2><%=@item_category.name%></h2>
 
 <h3>Belongs to: <%=link_to @item_category.activity.name, activity_path(@item_category.activity)%></h3>
+
+<h3>Specific Models:</h3>
+
+<%=link_to "Add a new Model", new_item_model_path(item_category_id: @item_category.id)%>
+
+<ul>
+    <%@item_category.item_models.each do |item_model|%>
+        <%=link_to item_model.name, item_model_path(item_model)%>
+    <%end%>
+</ul>
+

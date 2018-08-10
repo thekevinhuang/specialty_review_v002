@@ -7,8 +7,10 @@ class ItemCategoriesController < ApplicationController
     end
 
     def create
+        
         item_category = ItemCategory.new(item_category_params)
-        activity = Activity.find_by(id: params[:parent_id])
+        
+        activity = Activity.find_by(id: params[:parent][:parent_id])
         item_category.activity = activity
 
         if item_category.save

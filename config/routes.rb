@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :item_models do
     resources :characteristics
   end
-
+  resources :characteristics
   resources :ratings
 end

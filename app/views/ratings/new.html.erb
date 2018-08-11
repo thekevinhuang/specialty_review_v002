@@ -1,0 +1,14 @@
+<%=form_for Rating.new do |f|%>
+
+    <%if @characteristic%>
+        <h3>Rating for <%=@characteristic.name%></h3>
+        <%=hidden_field_tag 'rating[characteristic_id]', @characteristic.id%>
+    <%end%>
+
+    <%=hidden_field_tag 'rating[user_id]', @user.id%>
+
+    <%=f.label :description%><br>
+    <%=f.text_field :description%><br><br>
+
+    <%=f.submit "Submit Rating"%>
+<%end%>

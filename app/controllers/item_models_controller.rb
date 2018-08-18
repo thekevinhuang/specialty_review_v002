@@ -1,4 +1,5 @@
 class ItemModelsController <ApplicationController
+
     def show
         @item_model = ItemModel.find_by(id: params[:id])
     end
@@ -6,6 +7,8 @@ class ItemModelsController <ApplicationController
     def new
         if params[:item_category_id]
             @item_category = ItemCategory.find_by(id: params[:item_category_id])
+        else
+            redirect_to root_path
         end
     end
 

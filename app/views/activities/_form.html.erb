@@ -1,11 +1,13 @@
 <%=form_for current_object do |f|%>
 
-    <%if parent_object.id%>
-        <h3><%=parent_object.class.to_s%>: <%=parent_object.name%></h3>
-        <%=hidden_field_tag "parent[parent_id]", parent_object.id%>
-    <%else%>
-        <h3>Select a <%=parent_object.class.to_s%>:</h3>
-        <%=collection_select(:parent, :parent_id, parent_object.class.all, :id, :name)%><br>
+    <%if parent_object%>
+        <%if parent_object.id%>
+            <h3><%=parent_object.class.to_s%>: <%=parent_object.name%></h3>
+            <%=hidden_field_tag "parent[parent_id]", parent_object.id%>
+        <%else%>
+            <h3>Select a <%=parent_object.class.to_s%>:</h3>
+            <%=collection_select(:parent, :parent_id, parent_object.class.all, :id, :name)%><br>
+        <%end%>
     <%end%>
     <%=f.label :name%><br>
     <%=f.text_field :name%><br><br>

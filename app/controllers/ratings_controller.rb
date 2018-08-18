@@ -1,4 +1,5 @@
 class RatingsController <ApplicationController
+
     def new
         if params[:characteristic_id]
             @characteristic = Characteristic.find_by(id: params[:characteristic_id])

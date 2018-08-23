@@ -1,3 +1,21 @@
 <h2>Create a new Characteristic</h2>
 
-<%=render partial: 'activities/form', locals: {current_object: Characteristic.new, parent_object: @item_model ||= ItemModel.new}%>
+<%=form_for([@item_model, @characteristic]) do |f|%>
+
+    <%if @item_model%>
+        <%if @item_model.id%>
+            <h3><%=@item_model.class.to_s%>: <%=@item_model.name%></h3>
+            <%=hidden_field_tag "parent[parent_id]", @item_model.id%>
+        <%else%>
+            <h3>Select a <%=@item_model.class.to_s%>:</h3>
+            <%=collection_select(:parent, :parent_id, @item_model.class.all, :id, :name)%><br>
+        <%end%>
+    <%end%>
+    <%=f.label :name%><br>
+    <%=f.text_field :name%><br><br>
+
+    <%=f.label :description%><br>
+    <%=f.text_field :description%><br><br>
+
+    <%=f.submit "Create Characteristic"%>
+<%end%>

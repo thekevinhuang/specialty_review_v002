@@ -3,19 +3,20 @@ class CharacteristicsController < ApplicationController
     def new
         if params[:item_model_id]
             @item_model = ItemModel.find_by(id: params[:item_model_id])
+            @characteristic = Characteristic.new
         else
             redirect_to root_path
         end
     end
 
     def create
-        characteristic = Characteristic.find_or_create_by(name: characteristic_params[:name])
-        binding.pry
-        item_model = ItemModel.find_by(id: params[:parent][:parent_id])
-        characteristic.item_model = item_model
+        @characteristic = Characteristic.find_or_initialize_by(name: characteristic_params[:name])
+        
+        @characteristic.description = characteristic_params[:description]
+        @characteristic.item_model = ItemModel.find_by(id: params[:item_model_id])
 
-        if characteristic.save
-            redirect_to item_model_characteristic_path(characteristic)        
+        if @characteristic.save
+            redirect_to item_model_characteristic_path(@characteristic.item_model,@characteristic)        
         else
             render :new
         end

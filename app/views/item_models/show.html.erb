@@ -5,6 +5,6 @@
 <%=link_to "Add new Characteristic", new_item_model_characteristic_path(@item_model)%><br><br>
 
 <%=@item_model.characteristics.each do |characteristic|%>
-    <%=link_to characteristic.name, item_model_characteristic_path(characteristic)%>
+    <%=link_to characteristic.name, item_model_characteristic_path(@item_model, characteristic)%>
 <%end%>
 

@@ -7,12 +7,19 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   delete '/signout' => 'sessions#destroy'
 
-  resources :activities
-  resources :item_categories
-
-  resources :item_models do
-    resources :characteristics
+  resources :activities do
+    resources :item_categories
   end
+  
+  resources :item_categories do
+    resources :item_models
+  end
+
+  resources :item_models
+
+  resources :item_model_characteristics, only: [:new, :create]
+
+  resources :characteristics
   
   resources :ratings
 end

@@ -1,6 +1,5 @@
 class Characteristic <ActiveRecord::Base
     
-    has_many :ratings
     has_many :item_model_characteristics
     has_many :item_models, through: :item_model_characteristics
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_11_053245) do
+ActiveRecord::Schema.define(version: 2018_08_23_012038) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -20,13 +20,17 @@ ActiveRecord::Schema.define(version: 2018_08_11_053245) do
   create_table "characteristics", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "item_model_id"
   end
 
   create_table "item_categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.integer "activity_id"
+  end
+
+  create_table "item_model_characteristics", force: :cascade do |t|
+    t.integer "item_model_id"
+    t.integer "characteristic_id"
   end
 
   create_table "item_models", force: :cascade do |t|
@@ -38,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_08_11_053245) do
   create_table "ratings", force: :cascade do |t|
     t.integer "rating"
     t.integer "user_id"
-    t.integer "characteristic_id"
+    t.integer "item_model_characteristics_id"
     t.string "description"
   end
 

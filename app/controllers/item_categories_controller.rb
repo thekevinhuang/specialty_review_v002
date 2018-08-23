@@ -3,8 +3,6 @@ class ItemCategoriesController < ApplicationController
     def new
         if params[:activity_id]
             @activity = Activity.find_by(id: params[:activity_id])
-        else
-            redirect_to root_path
         end
     end
 

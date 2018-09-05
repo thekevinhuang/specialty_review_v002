@@ -2,9 +2,11 @@
 
 <h3>Product Characteristics:</h3>
 
-<%=link_to "Add new Characteristic", new_item_model_characteristic_path(@item_model)%><br><br>
+<%=link_to "Add new Characteristic", new_item_model_characteristic_path(item_model_id: @item_model.id)%><br><br>
 
-<%=@item_model.characteristics.each do |characteristic|%>
-    <%=link_to characteristic.name, item_model_characteristic_path(@item_model, characteristic)%>
+<%if !Characteristic.all.empty?%>
+    <%=@item_model.characteristics.each do |characteristic|%>
+        <%=link_to characteristic.name, item_model_characteristic_path(@item_model, characteristic)%>
+    <%end%>
 <%end%>
 

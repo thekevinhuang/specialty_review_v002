@@ -1,8 +1,8 @@
-<h2><%=@characteristic.name%> for <%=@characteristic.item_model.name%></h2>
+<h2><%=@characteristic.name%></h2>
 
-<h3>Average Rating:</h3>
+<h2>Items that have this Characteristic</h2>
 
-<h3>Number of Ratings:</h3>
-
-<%=link_to "Add a Review", new_rating_path(characteristic_id: @characteristic.id)%>
+<%@characteristic.item_models.each do |item_model|%>
+    <%= link_to item_model.name, item_model_path(item_model) %>
+<%end%>
 

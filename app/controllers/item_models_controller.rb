@@ -1,4 +1,4 @@
-class ItemModelsController <ApplicationController
+class ItemModelsController < ApplicationController
 
     def show
         @item_model = ItemModel.find_by(id: params[:id])

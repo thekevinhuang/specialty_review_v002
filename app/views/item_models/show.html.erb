@@ -2,11 +2,15 @@
 
 <h3>Product Characteristics:</h3>
 
-<%=link_to "Add new Characteristic", new_item_model_characteristic_path(item_model_id: @item_model.id)%><br><br>
-
 <%if !Characteristic.all.empty?%>
     <%=@item_model.characteristics.each do |characteristic|%>
-        <%=link_to characteristic.name, item_model_characteristic_path(@item_model, characteristic)%>
+        <%=link_to characteristic.name, characteristic_path(characteristic)%><br>
     <%end%>
 <%end%>
+
+<br>
+
+<%=render partial: 'add_char_form', locals: {model: @item_model, char: Characteristic.new}%>
+
+
 

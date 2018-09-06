@@ -1,7 +1,0 @@
-<h2>Add a Characteristic to an Item Model</h2>
-
-<%=form_for ItemModelCharacteristic.new do |f|%>
-    <%=hidden_field_tag 'item_model[id]', @item_model.id%>
-    <%f.collection_select(:characteristic_id, Characteristic.all, :id, :name)%>
-    <%=f.submit "Add Characteristic to #{@item_model.name}"%>
-<%end%>

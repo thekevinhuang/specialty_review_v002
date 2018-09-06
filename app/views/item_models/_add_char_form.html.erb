@@ -6,7 +6,7 @@
         <%=hidden_field_tag 'item_model[id]', model.id%>
 
         <%=f.label "Select a Characteristic"%>
-        <%=f.collection_select(:characteristic_id, Characteristic.all, :id, :name)%><br><br>
+        <%=f.collection_select(:characteristic_id, Characteristic.all, :id, :name, prompt: true)%><br><br>
 
         <%=f.label "OR create a new Characteristic"%><br><br>
         <%=fields_for :characteristic do |fields|%>

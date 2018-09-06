@@ -1,9 +1,18 @@
 <h2><%=@item_model.name%> Details</h2>
 
+<h3>Product Item Category/Activity:</h3>
+
+<h4>Activity</h4>
+<%=link_to @item_model.item_category.activity.name, activity_path(@item_model.item_category.activity)%>
+
+<h4>Item Category</h4>
+<%=link_to @item_model.item_category.name, item_category_path(@item_model.item_category)%><br>
+
+
 <h3>Product Characteristics:</h3>
 
 <%if !Characteristic.all.empty?%>
-    <%=@item_model.characteristics.each do |characteristic|%>
+    <%@item_model.characteristics.each do |characteristic|%>
         <%=link_to characteristic.name, characteristic_path(characteristic)%><br>
     <%end%>
 <%end%>

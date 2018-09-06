@@ -1,18 +1,18 @@
 class ItemModelCharacteristicsController < ApplicationController
     def new
-        if params[:item_model_id]
-            @item_model = ItemModel.find_by(id: params[:item_model_id])
-        else
-            redirect_to root_path
-        end
     end
 
     def create
+
         item_model = ItemModel.find_by(id: params["item_model"]["id"])
         if item_model
-            characteristic = Characteristic.find_or_initialize_by(name: params["characteristic"]["name"])
-            if !characteristic.id?
-                characteristic.description = params["characteristic"]["description"]
+            if !params["item_model_characteristic"]["characteristic_id"].empty?
+                characteristic = Characteristic.find_by(id: params["item_model_characteristic"]["characteristic_id"])
+            else
+                characteristic = Characteristic.find_or_initialize_by(name: params["characteristic"]["name"])
+                if !characteristic.id?
+                    characteristic.description = params["characteristic"]["description"]
+                end
             end
 
             if characteristic.save

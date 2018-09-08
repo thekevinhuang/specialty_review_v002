@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   delete '/signout' => 'sessions#destroy'
 
   resources :activities do
-    resources :item_categories
+    resources :item_categories, name_prefix: "activity_"
   end
   
   resources :item_categories do
-    resources :item_models
+    resources :item_models, name_prefix: "item_category_"
   end
 
   resources :item_models

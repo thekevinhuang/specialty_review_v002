@@ -8,7 +8,7 @@ class ItemModelsController < ApplicationController
         if params[:item_category_id]
             @item_category = ItemCategory.find_by(id: params[:item_category_id])
         else
-            redirect_to root_path
+            
         end
     end
 
@@ -18,7 +18,7 @@ class ItemModelsController < ApplicationController
         item_model.item_category = item_category
 
         if item_model.save
-            redirect_to item_model_path(item_model)
+            redirect_to item_category_item_model_path(item_category, item_model)
         else
             redirect_to new_item_model_path
         end

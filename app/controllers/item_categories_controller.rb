@@ -4,7 +4,7 @@ class ItemCategoriesController < ApplicationController
         if params[:activity_id]
             @activity = Activity.find_by(id: params[:activity_id])
         else
-            redirect_to root_path
+            
         end
     end
 
@@ -16,7 +16,7 @@ class ItemCategoriesController < ApplicationController
         item_category.activity = activity
 
         if item_category.save
-            redirect_to item_category_path(item_category)
+            redirect_to activity_item_category_path(activity, item_category)
         else
             redirect_to new_item_category_path
         end

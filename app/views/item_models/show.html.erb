@@ -11,22 +11,15 @@
 
 <h3>Product Characteristics:</h3>
 
-<%if !Characteristic.all.empty?%>
-    <%@item_model.characteristics.each do |characteristic|%>
-        <%item_model_char = ItemModelCharacteristic.from_parent(item_model: @item_model, characteristic: characteristic)%>
-        <%=link_to characteristic.name, characteristic_path(characteristic)%> - 
-        <%if !item_model_char.ratings.where(user_id: current_user.id).empty?%>
-            <%rating = Rating.from_parent(user: current_user, item_model_characteristic: item_model_char)%>
-            Your current rating: <%=rating.rating%> - LINK TO EDIT <br>
-        <%else%>
-            <%=link_to "Click to add Review", new_item_model_characteristic_rating_path(item_model_char)%><br>
-        <%end%>
-    <%end%>
-<%end%>
+<%=render partial: 'char_display', locals: {model: @item_model}%>
 
 <br>
 
-<%=render partial: 'add_char_form', locals: {model: @item_model, char: Characteristic.new}%>
+<%if params[:add_char]%>
+    <%=render partial: 'add_char_form', locals: {model: @item_model, char: Characteristic.new}%>
+<%else%>
+    <%=link_to "Add a Characteristic", item_model_path(@item_model, add_char: true)%>
+<%end%>
 
 
 

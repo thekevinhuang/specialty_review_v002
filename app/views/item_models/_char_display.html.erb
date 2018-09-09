@@ -4,7 +4,7 @@
         <%=link_to characteristic.name, characteristic_path(characteristic)%> - 
         <%if !item_model_char.ratings.where(user_id: current_user.id).empty?%>
             <%rating = Rating.from_parent(user: current_user, item_model_characteristic: item_model_char)%>
-            Your current rating: <%=rating.rating%> - LINK TO EDIT <br>
+            Your current rating: <%=link_to rating.rating, rating_path(rating)%> - LINK TO EDIT <br>
         <%else%>
             <%=link_to "Click to add Review", new_item_model_characteristic_rating_path(item_model_char)%><br>
         <%end%>

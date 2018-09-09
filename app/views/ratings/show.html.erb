@@ -1,1 +1,10 @@
-Show Rating
+<h3><%=@rating.user.name%>'s review for the <%=@rating.item_model_characteristic.characteristic.name%> of 
+<%=@rating.item_model_characteristic.item_model.name%></h3>
+
+<h2>Current Rating: <%=@rating.rating%></h2>
+
+<h3>Description: <%=@rating.description%></h3>
+
+<%if@rating.user == current_user%>
+    <%=link_to "Edit Review", edit_rating_path(@rating)%>
+<%end%>

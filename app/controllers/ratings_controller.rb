@@ -1,12 +1,12 @@
 class RatingsController <ApplicationController
 
     def new
-        if params[:characteristic_id]
-            @characteristic = Characteristic.find_by(id: params[:characteristic_id])
+        
+        if params[:item_model_characteristic_id]
+            @item_model_characteristic = ItemModelCharacteristic.find_by(id: params[:item_model_characteristic_id])
         else
-            redirect_to root_path
+            
         end
-        @user = current_user
     end
 
     def create

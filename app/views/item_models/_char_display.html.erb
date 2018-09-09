@@ -8,5 +8,10 @@
         <%else%>
             <%=link_to "Click to add Review", new_item_model_characteristic_rating_path(item_model_char)%><br>
         <%end%>
+        <br>
+
+        <h4>Average Review: INSERT AVG REVIEW</h4>
+        <%=link_to "All reviews for this product's #{characteristic.name}", item_model_characteristic_path(item_model_char)%>
+        <br>
     <%end%>
 <%end%>

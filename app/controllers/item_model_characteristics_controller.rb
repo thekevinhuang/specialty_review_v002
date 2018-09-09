@@ -1,4 +1,9 @@
 class ItemModelCharacteristicsController < ApplicationController
+    
+    def show
+        @item_model_characteristic = ItemModelCharacteristic.find_by(id: params[:id])
+    end
+    
     def new
     end
 

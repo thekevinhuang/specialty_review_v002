@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :item_models
 
-  resources :item_model_characteristics, only: [:new, :create] do
+  resources :item_model_characteristics, only: [:new, :create, :show] do
     resources :ratings, name_prefix: "item_model_characteristic_"
   end
 

@@ -6,4 +6,10 @@ class ItemModelCharacteristic < ActiveRecord::Base
     def self.from_parent(item_model: :item_model, characteristic: :characteristic)
         item_model_char = self.find_or_create_by(item_model_id: item_model.id, characteristic_id: characteristic.id)
     end
+
+    def average_rating
+        overall_rating = self.ratings.collect {|rating| rating.rating}
+
+        overall_rating.inject(0.0){|sum, num| sum + num}/overall_rating.size
+    end
 end

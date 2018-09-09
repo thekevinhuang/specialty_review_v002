@@ -1,6 +1,7 @@
 <%if !Characteristic.all.empty?%>
     <%model.characteristics.each do |characteristic|%>
         <%item_model_char = ItemModelCharacteristic.from_parent(item_model: model, characteristic: characteristic)%>
+        <br>
         <%=link_to characteristic.name, characteristic_path(characteristic)%> - 
         <%if !item_model_char.ratings.where(user_id: current_user.id).empty?%>
             <%rating = Rating.from_parent(user: current_user, item_model_characteristic: item_model_char)%>
@@ -10,7 +11,7 @@
         <%end%>
         <br>
 
-        <h4>Average Review: INSERT AVG REVIEW</h4>
+        <h4>Average Review: <%=item_model_char.average_rating%></h4>
         <%=link_to "All reviews for this product's #{characteristic.name}", item_model_characteristic_path(item_model_char)%>
         <br>
     <%end%>

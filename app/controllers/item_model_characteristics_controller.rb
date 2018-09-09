@@ -31,7 +31,7 @@ class ItemModelCharacteristicsController < ApplicationController
         else
             redirect_to root_path
         end
-        #binding.pry
+        
     end
 
 end

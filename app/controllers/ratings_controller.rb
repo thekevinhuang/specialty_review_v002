@@ -1,11 +1,13 @@
 class RatingsController <ApplicationController
+    before_action :load_rating, only:[:show, :edit, :update]
 
     def new
         
         if params[:item_model_characteristic_id]
             @item_model_characteristic = ItemModelCharacteristic.find_by(id: params[:item_model_characteristic_id])
+            @rating = Rating.new
         else
-            
+            redirect_to root_path
         end
     end
 
@@ -20,12 +22,28 @@ class RatingsController <ApplicationController
     end
 
     def show
-        @rating = Rating.find_by(id: params[:id])
+        
+    end
+
+    def edit
+        @item_model_characteristic = @rating.item_model_characteristic     
+    end
+
+    def update
+        if Rating.update(rating_params)
+            redirect_to rating_path(@rating)
+        else
+            redirect_to edit_rating_path(@rating)
+        end
     end
 
     private
 
     def rating_params
         params.require(:rating).permit(:rating, :user_id, :item_model_characteristic_id, :description)
+    end
+
+    def load_rating
+        @rating = Rating.find_by(id: params[:id])
     end
 end

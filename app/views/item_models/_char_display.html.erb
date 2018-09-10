@@ -1,18 +1,17 @@
 <%if !Characteristic.all.empty?%>
     <%model.characteristics.each do |characteristic|%>
         <%item_model_char = ItemModelCharacteristic.from_parent(item_model: model, characteristic: characteristic)%>
-        <br>
         <%=link_to characteristic.name, characteristic_path(characteristic)%> - 
         <%if !item_model_char.ratings.where(user_id: current_user.id).empty?%>
             <%rating = Rating.from_parent(user: current_user, item_model_characteristic: item_model_char)%>
-            Your current rating: <%=link_to rating.rating, rating_path(rating)%> - LINK TO EDIT <br>
+            Your current rating: <%=link_to rating.rating, rating_path(rating)%> - <%=link_to "Edit Rating", edit_rating_path(rating)%> <br>
         <%else%>
             <%=link_to "Click to add Review", new_item_model_characteristic_rating_path(item_model_char)%><br>
         <%end%>
-        <br>
 
-        <h4>Average Review: <%=item_model_char.average_rating%></h4>
+        Average Review: <%=item_model_char.average_rating%>
         <%=link_to "All reviews for this product's #{characteristic.name}", item_model_characteristic_path(item_model_char)%>
+        <br>
         <br>
     <%end%>
 <%end%>

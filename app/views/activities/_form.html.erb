@@ -1,4 +1,14 @@
 <%=form_for(current_object) do |f|%>
+    <% if current_object.errors.any? %>
+        <div id="error_explanation">
+          <h2>There were some errors:</h2>
+          <ul>
+            <% current_object.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <%if parent_object%>
         <%if parent_object.id%>

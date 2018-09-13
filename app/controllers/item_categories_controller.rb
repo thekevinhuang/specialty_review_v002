@@ -1,8 +1,13 @@
 class ItemCategoriesController < ApplicationController
 
     def new
+        if !@item_category
+            @item_category = ItemCategory.new
+        end
+
         if params[:activity_id]
             @activity = Activity.find_by(id: params[:activity_id])
+            
         else
             
         end
@@ -10,15 +15,15 @@ class ItemCategoriesController < ApplicationController
 
     def create
         
-        item_category = ItemCategory.new(item_category_params)
+        @item_category = ItemCategory.new(item_category_params)
         
-        activity = Activity.find_by(id: params[:parent][:parent_id])
-        item_category.activity = activity
+        @activity = Activity.find_by(id: params[:parent][:parent_id])
+        @item_category.activity = @activity
 
-        if item_category.save
-            redirect_to activity_item_category_path(activity, item_category)
+        if @item_category.save
+            redirect_to activity_item_category_path(@activity, @item_category)
         else
-            redirect_to new_item_category_path
+            render :new
         end
     end
 

@@ -5,16 +5,18 @@ class ActivitiesController < ApplicationController
     end
 
     def new
-        
+        if !@activity
+            @activity = Activity.new
+        end
     end
 
     def create
-        activity = Activity.new(activity_params)
+        @activity = Activity.new(activity_params)
 
-        if activity.save
-            redirect_to activity_path(activity)
+        if @activity.save
+            redirect_to activity_path(@activity)
         else
-            redirect_to new_activity_path
+            render :new
         end
     end
 

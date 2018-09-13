@@ -16,7 +16,7 @@
 <br>
 
 <%if params[:add_char]%>
-    <%=render partial: 'add_char_form', locals: {model: @item_model, char: Characteristic.new}%>
+    <%=render partial: 'add_char_form', locals: {model: @item_model, char: @characteristic, imc: @item_model_characteristic}%>
 <%else%>
     <%=link_to "Add a Characteristic", item_model_path(@item_model, add_char: true)%>
 <%end%>

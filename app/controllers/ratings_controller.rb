@@ -12,10 +12,10 @@ class RatingsController <ApplicationController
     end
 
     def create
-        rating = Rating.new(rating_params)
+        @rating = Rating.new(rating_params)
 
-        if rating.save
-            redirect_to rating_path(rating)
+        if @rating.save
+            redirect_to rating_path(@rating)
         else
             redirect_to root_path
         end

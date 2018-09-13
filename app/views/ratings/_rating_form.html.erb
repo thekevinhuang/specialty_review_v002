@@ -1,4 +1,15 @@
-<%=form_for rating do |f|%>
+<%=form_for @rating do |f|%>
+
+    <% if @rating.errors.any? %>
+        <div id="error_explanation">
+          <h2>There were some errors:</h2>
+          <ul>
+            <% @rating.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <%if item_model_char%>
         <h3>Rating for <%=item_model_char.item_model.name%> for <%=item_model_char.characteristic.name%></h3>

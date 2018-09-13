@@ -30,7 +30,7 @@ class RatingsController <ApplicationController
     end
 
     def update
-        if Rating.update(rating_params)
+        if @rating.update(rating_params)
             redirect_to rating_path(@rating)
         else
             redirect_to edit_rating_path(@rating)

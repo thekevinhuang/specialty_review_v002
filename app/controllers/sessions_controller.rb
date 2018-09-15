@@ -1,11 +1,21 @@
 class SessionsController < ApplicationController
+
     def new
         
     end
 
     def create
-        if !auth['uid'].empty?
-            @user = User.find_or_create_by(email: 'blah')
+        if !authorize['uid'].empty?
+            
+            @user = User.find_or_initialize_by(email: authorize['info']['email'])
+
+            @user.name = "#{authorize['info']['first_name']} #{authorize['info']['last_name']}"
+            @user.password = SecureRandom.hex(8)
+            @user.save
+
+            session[:user_id] = @user.id
+
+            redirect_to user_path(@user)
         else
 
 

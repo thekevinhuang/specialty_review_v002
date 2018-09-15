@@ -8,8 +8,12 @@ class ItemModelCharacteristic < ActiveRecord::Base
     end
 
     def average_rating
-        overall_rating = self.ratings.collect {|rating| rating.rating}
+        if !self.ratings.empty?
+            overall_rating = self.ratings.collect {|rating| rating.rating}
 
-        overall_rating.inject(0.0){|sum, num| sum + num}/overall_rating.size
+            overall_rating.inject(0.0){|sum, num| sum + num}/overall_rating.size
+        else
+            overall_rating = "No Ratings"
+        end
     end
 end

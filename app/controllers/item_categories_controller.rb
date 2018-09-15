@@ -7,7 +7,6 @@ class ItemCategoriesController < ApplicationController
 
         if params[:activity_id]
             @activity = Activity.find_by(id: params[:activity_id])
-            
         else
             
         end

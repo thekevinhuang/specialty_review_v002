@@ -1,5 +1,7 @@
 <h2><%=@item_category.name%></h2>
 
+<h3><%=@item_category.description%></h3>
+
 <h3>Belongs to: <%=link_to @item_category.activity.name, activity_path(@item_category.activity)%></h3>
 
 <h3>Specific Models:</h3>

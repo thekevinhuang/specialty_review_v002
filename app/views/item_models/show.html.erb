@@ -1,5 +1,9 @@
 <h2><%=@item_model.name%> Details</h2>
 
+<%=@item_model.description%>
+
+
+
 <h3>Product Item Category/Activity:</h3>
 
 <h4>Activity</h4>
@@ -8,7 +12,7 @@
 <h4>Item Category</h4>
 <%=link_to @item_model.item_category.name, item_category_path(@item_model.item_category)%><br>
 
-
+<h3>Product Overall Rating: <%=@item_model.overall_rating%></h3>
 <h3>Product Characteristics:</h3>
 
 <%=render partial: 'char_display', locals: {model: @item_model}%>

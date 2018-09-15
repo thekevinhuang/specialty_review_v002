@@ -24,4 +24,9 @@ Rails.application.routes.draw do
   resources :characteristics
   
   resources :ratings
+
+  
+  get 'auth/google_oauth2/callback' => 'sessions#create'
+
+  get 'google_login', to: redirect("/auth/google_oauth2")
 end

@@ -12,7 +12,9 @@ class ItemModel < ActiveRecord::Base
             total_rating = []
             self.item_model_characteristics.each do |imc|
                 if numeric?(imc.average_rating)
-                    total_rating.push(imc.average_rating)
+                    imc.review_count.times do
+                        total_rating.push(imc.average_rating)
+                    end
                 end
             end
             

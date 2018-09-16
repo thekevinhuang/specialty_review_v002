@@ -6,11 +6,13 @@
 
 <h3>Product Item Category/Activity:</h3>
 
-<h4>Activity</h4>
+<h4>Activity: 
 <%=link_to @item_model.item_category.activity.name, activity_path(@item_model.item_category.activity)%>
+</h4>
 
-<h4>Item Category</h4>
+<h4>Item Category:
 <%=link_to @item_model.item_category.name, item_category_path(@item_model.item_category)%><br>
+</h4>
 
 <h3>Product Overall Rating: <%=@item_model.overall_rating%></h3>
 <h3>Product Characteristics:</h3>

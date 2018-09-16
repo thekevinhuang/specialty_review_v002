@@ -16,4 +16,8 @@ class ItemModelCharacteristic < ActiveRecord::Base
             overall_rating = "No Ratings"
         end
     end
+
+    def review_count
+        self.ratings.size
+    end
 end

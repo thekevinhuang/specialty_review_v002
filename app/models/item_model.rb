@@ -21,7 +21,7 @@ class ItemModel < ActiveRecord::Base
             if total_rating.empty?
                 total_rating = "No Ratings for any characteristics"
             else
-                total_rating.inject(0.0){|sum, num| sum + num}/total_rating.size
+                (total_rating.inject(0.0){|sum, num| sum + num}/total_rating.size).round(2)
             end
             
         else

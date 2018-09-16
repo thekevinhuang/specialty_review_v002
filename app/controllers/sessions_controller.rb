@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def create
-        if !authorize['uid'].empty?
+        if authorize && !authorize['uid'].empty?
             
             @user = User.find_or_initialize_by(email: authorize['info']['email'])
 

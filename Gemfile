@@ -31,6 +31,10 @@ gem 'omniauth-google-oauth2'
 
 gem 'dotenv-rails'
 
+gem 'bootstrap-sass'
+
+gem 'jquery-rails'
+
 gem 'pry'
 
 # Use ActiveStorage variant

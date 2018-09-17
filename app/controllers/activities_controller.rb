@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
-
+    before_action :require_log_in
+    
     def show
         @activity = Activity.find_by(id: params[:id])
     end

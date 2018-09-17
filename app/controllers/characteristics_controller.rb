@@ -1,4 +1,5 @@
 class CharacteristicsController < ApplicationController
+    before_action :require_log_in
 
     def new
         @characteristic = Characteristic.new

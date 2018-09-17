@@ -1,4 +1,5 @@
 class ItemModelsController < ApplicationController
+    before_action :require_log_in
 
     def show
         @item_model = ItemModel.find_by(id: params[:id])

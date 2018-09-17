@@ -1,5 +1,6 @@
 class RatingsController <ApplicationController
     before_action :load_rating, only:[:show, :edit, :update]
+    before_action :require_log_in
 
     def new
         

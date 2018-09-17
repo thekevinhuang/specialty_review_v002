@@ -10,7 +10,10 @@ class ApplicationController < ActionController::Base
     private
     
     def require_log_in
-        redirect_to root_path unless logged_in?
+        if !logged_in?
+            flash[:message] = "You need to be logged in to view that page!"
+            redirect_to root_path
+        end
     end
 
     def current_user

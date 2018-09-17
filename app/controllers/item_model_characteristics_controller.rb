@@ -1,4 +1,5 @@
 class ItemModelCharacteristicsController < ApplicationController
+    before_action :require_log_in
     
     def show
         @item_model_characteristic = ItemModelCharacteristic.find_by(id: params[:id])

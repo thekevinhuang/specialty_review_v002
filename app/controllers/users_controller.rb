@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :load_user, only: [:show, :edit]
+    before_action :require_log_in, only: [:show, :index]
 
     def new
         if !@user

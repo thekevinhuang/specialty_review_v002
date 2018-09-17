@@ -3,12 +3,10 @@
 
 <h2>Current Rating: <%=@rating.rating%></h2>
 
-<h3>Description: <%=@rating.description%></h3>
+<p class="desc">Description: <%=@rating.description%></p><br>
 
 <%if@rating.user == current_user%>
-    <%=link_to "Edit Review", edit_rating_path(@rating)%>
+    <h4><%=link_to "Edit Review", edit_rating_path(@rating)%></h4>
 <%end%>
 
-<br>
-
-<%=link_to "Back to Item Model", item_model_path(@rating.item_model_characteristic.item_model)%>
+<h4><%=link_to "Back to Item Model", item_model_path(@rating.item_model_characteristic.item_model)%></h4>

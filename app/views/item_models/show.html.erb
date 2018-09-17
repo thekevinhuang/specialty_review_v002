@@ -1,8 +1,6 @@
 <h2><%=@item_model.name%> Details</h2>
 
-<%=@item_model.description%>
-
-
+<p class="desc"><%=@item_model.description%></p>
 
 <h3>Product Item Category/Activity:</h3>
 
@@ -14,17 +12,17 @@
 <%=link_to @item_model.item_category.name, item_category_path(@item_model.item_category)%><br>
 </h4>
 
-<h3>Product Overall Rating: <%=@item_model.overall_rating%></h3>
-<h3>Product Characteristics:</h3>
 
-<%=render partial: 'char_display', locals: {model: @item_model}%>
+<h3>Product Characteristics:</h3>
+<h4>Product Overall Rating: <%=@item_model.overall_rating%></h4>
 
 <br>
 
 <%if params[:add_char]%>
     <%=render partial: 'add_char_form', locals: {model: @item_model, char: @characteristic, imc: @item_model_characteristic}%>
 <%else%>
-    <%=link_to "Add a Characteristic", item_model_path(@item_model, add_char: true)%>
+    <%=render partial: 'char_display', locals: {model: @item_model}%>
+    <h4><%=link_to "Add a Characteristic", item_model_path(@item_model, add_char: true)%></h4>
 <%end%>
 
 

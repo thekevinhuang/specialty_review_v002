@@ -2,6 +2,25 @@ h2 {
     
 }
 
+h3{
+
+    color: deepskyblue;
+    a {
+        color: royalblue;
+    }
+
+    a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: royalblue;
+    }
+    
+}
+
+
 ul {
     
     list-style-type: none;
@@ -9,31 +28,36 @@ ul {
 
 li {
     a{
-        font-size: 20px;
-    }
-
-    a:link {
         color: lightslategray;
+        font-size: 20px;
     }
     
     a:hover {
         color: black;
         text-decoration: none;
     }
+
+    a:visited {
+        color:lightslategray;
+    }
 }
 
-
-
-a:link {
-    color: lightslategray;
+p.desc {
+    color: darkgrey;
+    font-size: 16px;
+    font-style: italic;
 }
 
-a:hover {
-    color: black;
-    text-decoration: none;
-}
+div.field_with_errors {
+    input[type=text] {
+        border:1px solid red;
+        border-radius: 4px;
+    }
 
-a:visited {
-    color: lightslategray;
+    textarea {
+        border:1px solid red;
+        border-radius: 4px;
+    }
+    
 }
 

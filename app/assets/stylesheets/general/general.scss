@@ -1,0 +1,39 @@
+h2 {
+    
+}
+
+ul {
+    
+    list-style-type: none;
+}
+
+li {
+    a{
+        font-size: 20px;
+    }
+
+    a:link {
+        color: lightslategray;
+    }
+    
+    a:hover {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+
+
+a:link {
+    color: lightslategray;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: lightslategray;
+}
+

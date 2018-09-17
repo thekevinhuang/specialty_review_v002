@@ -9,19 +9,7 @@
   </head>
 
   <body>
-    <div style="clear:both;">
-      <div style="float:left;">
-        <h1>Specialty Review</h1>
-      </div>
-
-      <div style="float:right;">
-        <%if current_user%>
-          <%=link_to "Activities", activities_path%><br>
-          <%=link_to "Your Profile", user_path(current_user)%><br>
-          <%=link_to "Log Out", signout_path, method: :delete%>
-        <%end%>
-      </div>
-    </div>
+    <%=render 'layouts/navigation'%>
 
     <div style="clear:both;">
       <% flash.each do |key, value| %>

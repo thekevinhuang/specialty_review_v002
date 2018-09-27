@@ -29,6 +29,14 @@ class ItemModel < ActiveRecord::Base
         end
     end
 
+    def self.by_item_category(item_category)
+        ItemModel.where(["item_category_id = ?", item_category.id])
+    end
+
+    def self.sorted_by_overall_rating_desc(item_category)
+        self.by_item_category(item_category).sort_by(&:overall_rating).reverse
+    end
+
     private
 
     def numeric? string

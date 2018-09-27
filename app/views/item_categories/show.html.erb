@@ -9,8 +9,8 @@
 <h4><%=link_to "Add a new Model", new_item_category_item_model_path(@item_category)%></h4>
 
 <ul>
-    <%@item_category.item_models.each do |item_model|%>
-        <li><%=link_to item_model.name, item_model_path(item_model)%></li>
+    <%ItemModel.sorted_by_overall_rating_desc(@item_category).each do |item_model|%>
+        <li><%=link_to "#{item_model.name} - Rating: #{item_model.overall_rating}", item_model_path(item_model)%></li>
     <%end%>
 </ul>
 

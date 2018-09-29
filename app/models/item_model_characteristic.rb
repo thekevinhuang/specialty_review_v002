@@ -17,6 +17,28 @@ class ItemModelCharacteristic < ActiveRecord::Base
         end
     end
 
+    def self.by_model(item_model)
+        self.where(["item_model_id = ?", item_model.id])
+    end
+
+    def self.sorted_by_review_count(item_model)
+        self.by_model(item_model).sort_by(&:review_count).reverse
+    end
+
+    def self.sorted_by_avg_review(item_model)
+        self.by_model(item_model).sort_by(&:average_rating).reverse
+    end
+
+    def self.sort_by_param(item_model: :item_model, sort_type: :sort_type)
+        if sort_type == "review"
+            self.sorted_by_avg_review(item_model).collect
+        elsif sort_type == "count"
+            self.sorted_by_review_count(item_model).collect
+        else
+            self.by_model(item_model).collect
+        end
+    end
+
     def review_count
         self.ratings.size
     end

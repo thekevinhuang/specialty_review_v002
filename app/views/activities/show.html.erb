@@ -4,7 +4,7 @@
 
 <ul>
     <%@activity.item_categories.each do |item_category|%>
-        <li><%=link_to item_category.name, item_category_path(item_category)%></li>
+        <li><%=link_to item_category.name, activity_item_category_path(item_category)%></li>
     <%end%>
 </ul>
 

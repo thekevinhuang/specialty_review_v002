@@ -1,24 +1,20 @@
-# README
+# Specialty Reviewer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The purpose of this simple web application is to leverage Rails to interact with users and persist data in a meaningful way. This application allows the creation of users and sessions; activities, items, and models; characteristics; and ratings. This website has no affiliation with any products listed.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+run 'bundle install' prior to usage.
 
-* System dependencies
+To set up the db structure, run 'rake db:migrate'
 
-* Configuration
+Following these steps, use the 'rails server' command to view and interact with the application.
 
-* Database creation
 
-* Database initialization
+## Contributing
 
-* How to run the test suite
+Bug reports and pull requests are welcome on GitHub at https://github.com/thekevinhuang/specialty_review_v002. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
-
-* ...
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
